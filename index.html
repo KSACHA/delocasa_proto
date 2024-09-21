@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delectro Demo</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+
+    <!-- Add FontAwesome for the location pin -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="demo-container">
+
+        <!-- Location pin and address (H1) -->
+        <div class="location-header">
+            <i class="fas fa-map-marker-alt"></i> <!-- Location Pin Icon -->
+            <h1>Chippendale,<br>2008, NSW</h1> <!-- Two lines for mobile -->
+        </div>
+
+        <!-- Carbon Intensity Text (H2) -->
+        <h2 id="carbon-intensity-text" class="carbon-intensity-text">The Carbon Intensity<br>in your Electricity Grid<br>is now</h2>
+
+        <!-- Carbon Intensity Circle (Outline) -->
+        <div id="carbon-intensity-circle" class="intensity-circle">
+            <span class="value"></span> <!-- Placeholder for the carbon intensity value -->
+            <span class="unit"></span> <!-- Unit for the carbon intensity -->
+        </div>
+
+    </div>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>

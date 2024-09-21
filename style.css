@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Base styles for mobile */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+#demo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Location pin and address styling for mobile */
+.location-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute; /* Positioned relative to the screen */
+    top: 3px;
+    left: 5px;
+    padding: 3px;
+}
+
+.location-header i {
+    font-size: 14px;
+    color: white;
+    margin-right: 8px;
+}
+
+.location-header h1 {
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.2;
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 768px) {
+    .location-header {
+        position: absolute; /* Positioned relative to the screen */
+        top: 10px;
+        left: calc(25% + 10%); /* Adjusted to left align with the circle correctly */
+        display: flex;
+        align-items: center;
+        padding: 0;
+        width: 100%; /* Ensuring the container is wide enough */
+    }
+
+    .location-header h1 {
+        font-size: 12px; /* Ensuring the font size is appropriate */
+        white-space: nowrap !important; /* Important for keeping the text on a single line */
+        overflow: hidden; /* Hides any overflow */
+        text-overflow: ellipsis; /* Adds an ellipsis if the text overflows */
+        line-height: 1;
+        display: inline-block; /* Ensure it behaves like a single block for nowrap */
+    }
+
+    .location-header i {
+        font-size: 20px; /* Adjust icon size for larger screens */
+        margin-right: 8px;
+    }
+}
+
+/* Base styles for mobile h2 */
+#carbon-intensity-text {
+    font-size: 14px;
+    font-weight: 550;
+    text-align: right;
+    line-height: 1.5; /* Slightly increase line spacing */
+    color: white;
+    position: absolute;
+    left: 20px; /* Align it to the left side of the screen */
+    top: 12%; /* Vertically align to the middle of the pulsating circle */
+    transform: translateY(-50%); /* Center the text */
+    width: auto;
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 768px) {
+    #carbon-intensity-text {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.6;
+        left: 450px; /* Adjust right position for larger screens */
+        top: 20%; /* Slight adjustment for vertical alignment */
+    }
+}
+
+
+
+.intensity-circle {
+    position: relative; /* To position elements inside absolutely */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 0.1px solid rgb(170, 153, 153); /* Outline */
+    background-color: transparent; /* Inner background matches the container */
+    animation: pulse 3s infinite ease-in-out; /* Pulse animation */
+    box-shadow: 0 0 15px 5px rgba(111, 110, 110, 0.4); /* Smoky border */
+
+      /* Center the circle by default, then adjust for responsiveness */
+      left: 50%; /* Start centered horizontally */
+      transform: translateX(-50%);
+
+}
+
+/* Mobile styles: Move the circle 30% to the right */
+@media (max-width: 767px) {
+    .intensity-circle {
+        left: calc(1% + 24%); /* 30% to the right of the center */
+        transform: translateX(-50%); /* Adjust for positioning */
+    }
+}
+
+/* Larger screens: Move the circle 10% to the right */
+@media (min-width: 768px) {
+    .intensity-circle {
+        left: calc(3% + 10%); /* 10% to the right of the center */
+        transform: translateX(-50%); /* Adjust for positioning */
+    }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* Styles for carbon intensity value */
+.intensity-circle .value {
+    position: absolute;
+    top: 40%; /* Center the value vertically */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px; /* Larger size for the carbon intensity value */
+    font-weight: bold;
+    color: white;
+    line-height: 1;
+}
+
+/* Styles for the unit (gCO₂eq/kWh) */
+.intensity-circle .unit {
+    position: absolute;
+    top: 60%; /* Position the unit slightly below the value */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px; /* Smaller font size for the unit */
+    color: white;
+    line-height: 1;
+}
+
+/* Adjustments for Tablet (768px and up) */
+@media (min-width: 768px) {
+    .intensity-circle {
+        width: 200px;
+        height: 200px;
+        font-size: 28px;
+    }
+
+    .intensity-circle .value {
+        font-size: 42px; /* Increase font size for tablet */
+    }
+
+    .intensity-circle .unit {
+        font-size: 16px; /* Increase font size for unit on tablet */
+    }
+}
+
+/* Adjustments for Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .intensity-circle {
+        width: 250px;
+        height: 250px;
+        font-size: 32px;
+    }
+
+    .intensity-circle .value {
+        font-size: 48px; /* Increase font size for desktop */
+    }
+
+    .intensity-circle .unit {
+        font-size: 18px; /* Increase font size for unit on desktop */
+    }
+}
