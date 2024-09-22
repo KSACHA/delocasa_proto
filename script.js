@@ -1,15 +1,15 @@
 // Function to get color based on carbon intensity (in hex)
 function getColor(carbonIntensity) {
-    if (carbonIntensity <= 100) return '#36a664';
-    if (carbonIntensity <= 200) return '#bdd255';
-    if (carbonIntensity <= 300) return '#ebd749';
-    if (carbonIntensity <= 400) return '#d9b341';
-    if (carbonIntensity <= 500) return '#c18637';
-    if (carbonIntensity <= 600) return '#b06730';
-    if (carbonIntensity <= 700) return '#914a25';
-    if (carbonIntensity <= 800) return '#682f14';
-    if (carbonIntensity <= 900) return '#4d2509';
-    return '#381c01'; // Default for higher values
+    if (carbonIntensity <= 100) return '#C1D168';
+    if (carbonIntensity <= 200) return '#D4DB7B';
+    if (carbonIntensity <= 300) return '#E4CF5E';
+    if (carbonIntensity <= 400) return '#B39667';
+    if (carbonIntensity <= 500) return '#8F735E';
+    if (carbonIntensity <= 600) return '#7F6554';
+    if (carbonIntensity <= 700) return '#644A33';
+    if (carbonIntensity <= 800) return '#473322';
+    if (carbonIntensity <= 900) return '#372413';
+    return '#170C01'; // Default for higher values
 }
 
 // Helper function to convert hex to rgba
@@ -33,7 +33,7 @@ function updateData() {
         const color = getColor(carbonIntensity);
 
         // Convert the hex color to rgba with 30% transparency
-        const containerColor = hexToRgba(color, 0.8); // This applies the 30% transparency
+        const containerColor = hexToRgba(color, 0.7); // This applies the 30% transparency
 
         // Set the background color of the entire container with transparency
         document.getElementById('demo-container').style.backgroundColor = containerColor;
@@ -48,7 +48,7 @@ function updateData() {
 
         // Set the border color and box-shadow of the circle to match the intensity color
         circle.style.borderColor = color;
-        circle.style.boxShadow = `0 0 15px 5px rgba(111, 110, 110, 0.4)`; // Ensure the smoky effect is constant
+        circle.style.boxShadow = `0 0 20px 5px rgba(250, 250, 250, 0.7)`; // Ensure the smoky effect is constant
     })
     .catch(error => console.error('Error fetching data:', error));
 }
